@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField>
+    <fullName>Producer__c</fullName>
+    <type>MasterDetail</type>
+    <inlineHelpText>Selecione o produtor responsável por esta propriedade rural.</inlineHelpText>
+    <description>Relaciona a propriedade rural ao produtor responsável cadastrado na Account.</description>
+    <label>Produtor</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Propriedades Rurais</relationshipLabel>
+    <relationshipName>PropriedadesRurais</relationshipName>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <writeRequiresMasterRead>true</writeRequiresMasterRead>
+    <securityClassification>Internal</securityClassification>
+</CustomField>

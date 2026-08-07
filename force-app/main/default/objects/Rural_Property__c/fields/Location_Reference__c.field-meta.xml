@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Location_Reference__c</fullName>
+    <description>Armazena uma referência simples para ajudar na localização da propriedade rural.</description>
+    <inlineHelpText>Informe pontos de referência ou instruções para chegar à propriedade.</inlineHelpText>
+    <label>Referência de Localização</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Crop_Variety__c</fullName>
+    <description>Armazena a variedade cultivada no talhão.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Informe a variedade cultivada neste talhão.</inlineHelpText>
+    <label>Variedade da Cultura</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plant_Age__c</fullName>
+    <description>Calcula automaticamente a idade das plantas com base no ano de plantio informado.</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(Planting_Year__c),
+    NULL,
+    YEAR(TODAY()) - Planting_Year__c
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Este campo é calculado automaticamente a partir do campo Ano de Plantio.</inlineHelpText>
+    <label>Idade das Plantas</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

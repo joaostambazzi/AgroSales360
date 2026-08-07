@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Municipality__c</fullName>
+    <description>Armazena o município onde a propriedade rural está localizada.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Informe o município da propriedade rural.</inlineHelpText>
+    <label>Município</label>
+    <length>80</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
