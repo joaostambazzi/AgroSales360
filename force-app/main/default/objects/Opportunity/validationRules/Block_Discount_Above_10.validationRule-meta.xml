@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Discount_Above_10</fullName>
+    <active>true</active>
+    <description>Impede que oportunidades sejam salvas com desconto superior a 10%.</description>
+    <errorConditionFormula>Discount_Percentage__c &gt; 0.10</errorConditionFormula>
+    <errorDisplayField>Discount_Percentage__c</errorDisplayField>
+    <errorMessage>O desconto não pode ser superior a 10%.</errorMessage>
+</ValidationRule>
