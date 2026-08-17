@@ -73,11 +73,41 @@
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
-    <start>
+    <recordUpdates>
+        <name>Update_Customer_After_Sale</name>
+        <label>Update Customer After Sale</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>Create_Post_Sale_Follow_up_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Customer_Status__c</field>
+            <value>
+                <stringValue>Ativo</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Last_Purchase_Date__c</field>
+            <value>
+                <elementReference>$Record.CloseDate</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Update_Customer_After_Sale</targetReference>
         </connector>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>
