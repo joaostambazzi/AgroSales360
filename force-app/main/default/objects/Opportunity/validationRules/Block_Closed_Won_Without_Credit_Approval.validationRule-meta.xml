@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Closed_Won_Without_Credit_Approval</fullName>
+    <active>true</active>
+    <description>Impede que uma Opportunity seja fechada como Closed Won quando a análise de crédito estiver pendente ou reprovada.</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName, &quot;Closed Won&quot;),
+    OR(
+        ISPICKVAL(Status_da_An_lise_de_Cr_dito__c, &quot;Pendente Financeiro&quot;),
+        ISPICKVAL(Status_da_An_lise_de_Cr_dito__c, &quot;Reprovado&quot;)
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Status_da_An_lise_de_Cr_dito__c</errorDisplayField>
+    <errorMessage>A oportunidade não pode ser fechada como ganha enquanto a análise de crédito estiver pendente ou reprovada.</errorMessage>
+</ValidationRule>

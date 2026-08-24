@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status_da_An_lise_de_Cr_dito__c</fullName>
+    <description>Indica o resultado da análise de crédito da Opportunity, considerando a condição de pagamento, o valor da venda e o crédito disponível do cliente.</description>
+    <inlineHelpText>Use este campo para identificar se a venda dispensa análise de crédito, está dentro do limite disponível ou depende de aprovação do Financeiro.</inlineHelpText>
+    <label>Status da Análise de Crédito</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Não necessário</fullName>
+                <default>false</default>
+                <label>Não necessário</label>
+            </value>
+            <value>
+                <fullName>Dentro do limite</fullName>
+                <default>false</default>
+                <label>Dentro do limite</label>
+            </value>
+            <value>
+                <fullName>Pendente Financeiro</fullName>
+                <default>false</default>
+                <label>Pendente Financeiro</label>
+            </value>
+            <value>
+                <fullName>Aprovado</fullName>
+                <default>false</default>
+                <label>Aprovado</label>
+            </value>
+            <value>
+                <fullName>Reprovado</fullName>
+                <default>false</default>
+                <label>Reprovado</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

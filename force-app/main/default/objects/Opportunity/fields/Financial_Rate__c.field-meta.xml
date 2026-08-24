@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Financial_Rate__c</fullName>
+    <description>Armazena a taxa financeira aplicada à Opportunity de acordo com a condição de pagamento selecionada.</description>
+    <inlineHelpText>A taxa é definida automaticamente conforme o prazo de pagamento. Atualmente: à vista e 30 dias = 0%, 60 dias = 5% e 90 dias = 10%.</inlineHelpText>
+    <label>Taxa Financeira</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Percent</type>
+</CustomField>

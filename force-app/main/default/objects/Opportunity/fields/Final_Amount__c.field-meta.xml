@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Final_Amount__c</fullName>
+    <description>Calcula o valor final da Opportunity considerando o valor dos produtos e a taxa financeira aplicada conforme a condição de pagamento.</description>
+    <formula>Amount * (1 + Financial_Rate__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Valor calculado automaticamente com base no Amount da Opportunity e na Taxa Financeira.</inlineHelpText>
+    <label>Valor Final</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>
