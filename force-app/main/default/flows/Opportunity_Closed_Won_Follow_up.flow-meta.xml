@@ -3,6 +3,46 @@
     <apiVersion>67.0</apiVersion>
     <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
     <decisions>
+        <name>Check_Payment_Type</name>
+        <label>Check Payment Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_Customer_Active</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>Cash_Payment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Payment_Term__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>À vista</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Customer_Active</targetReference>
+            </connector>
+            <label>Cash Payment</label>
+        </rules>
+        <rules>
+            <name>Credit_Payment</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Payment_Term__c</leftValueReference>
+                <operator>NotEqualTo</operator>
+                <rightValue>
+                    <stringValue>À vista</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Account_Credit</targetReference>
+            </connector>
+            <label>Credit Payment</label>
+        </rules>
+    </decisions>
+    <decisions>
         <name>Should_Update_Last_Purchase_Date</name>
         <label>Should Update Last Purchase Date</label>
         <locationX>0</locationX>
@@ -29,7 +69,7 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>Update_Customer_After_Sale</targetReference>
+                <targetReference>Update_Account_Last_Purchase_Date</targetReference>
             </connector>
             <label>Update Last Purchase Date</label>
         </rules>
@@ -39,6 +79,14 @@
         <name>FollowupDueDate</name>
         <dataType>Date</dataType>
         <expression>TODAY() + 30</expression>
+    </formulas>
+    <formulas>
+        <name>NewUsedCredit</name>
+        <dataType>Currency</dataType>
+        <expression>BLANKVALUE({!Get_Account_Credit.Cr_dito_Utilizado__c}, 0)
++
+BLANKVALUE({!$Record.Final_Amount__c}, 0)</expression>
+        <scale>2</scale>
     </formulas>
     <interviewLabel>Opportunity Closed Won Follow-up {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Opportunity Closed Won Follow-up</label>
@@ -105,13 +153,34 @@
         <object>Task</object>
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
+    <recordLookups>
+        <name>Get_Account_Credit</name>
+        <label>Get Account Credit</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Update_Used_Credit</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
     <recordUpdates>
-        <name>Update_Customer_After_Sale</name>
-        <label>Update Customer After Sale</label>
+        <name>Set_Customer_Active</name>
+        <label>Set Customer Active</label>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Create_Post_Sale_Follow_up_Task</targetReference>
+            <targetReference>Should_Update_Last_Purchase_Date</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -127,6 +196,24 @@
                 <stringValue>Ativo</stringValue>
             </value>
         </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_Account_Last_Purchase_Date</name>
+        <label>Update Account Last Purchase Date</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Post_Sale_Follow_up_Task</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
         <inputAssignments>
             <field>Last_Purchase_Date__c</field>
             <value>
@@ -135,11 +222,35 @@
         </inputAssignments>
         <object>Account</object>
     </recordUpdates>
+    <recordUpdates>
+        <name>Update_Used_Credit</name>
+        <label>Update Used Credit</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Customer_Active</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.AccountId</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Cr_dito_Utilizado__c</field>
+            <value>
+                <elementReference>NewUsedCredit</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordUpdates>
     <start>
         <locationX>0</locationX>
         <locationY>0</locationY>
         <connector>
-            <targetReference>Should_Update_Last_Purchase_Date</targetReference>
+            <targetReference>Check_Payment_Type</targetReference>
         </connector>
         <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
         <filterLogic>and</filterLogic>

@@ -183,7 +183,7 @@
                 <leftValueReference>CalculatedFinalAmount</leftValueReference>
                 <operator>LessThanOrEqualTo</operator>
                 <rightValue>
-                    <elementReference>Get_Opportunity_Account.Available_Credit__c</elementReference>
+                    <elementReference>Get_Opportunity_Account.Cr_dito_Dispon_vel_Calculado__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
@@ -205,7 +205,7 @@
                 <leftValueReference>CalculatedFinalAmount</leftValueReference>
                 <operator>GreaterThan</operator>
                 <rightValue>
-                    <elementReference>Get_Opportunity_Account.Available_Credit__c</elementReference>
+                    <elementReference>Get_Opportunity_Account.Cr_dito_Dispon_vel_Calculado__c</elementReference>
                 </rightValue>
             </conditions>
             <connector>
