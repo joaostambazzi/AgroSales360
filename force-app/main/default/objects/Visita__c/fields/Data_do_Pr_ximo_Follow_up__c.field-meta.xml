@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Data_do_Pr_ximo_Follow_up__c</fullName>
+    <description>Data prevista para o próximo contato ou acompanhamento relacionado à visita.</description>
+    <inlineHelpText>Informe quando o vendedor ou agrônomo deve realizar o próximo follow-up.</inlineHelpText>
+    <label>Data do Próximo Follow-up</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Date</type>
+</CustomField>

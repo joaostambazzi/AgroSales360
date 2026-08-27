@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Precisa_de_Follow_up__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indica se a visita exige uma ação de acompanhamento posterior.</description>
+    <inlineHelpText>Marque esta opção quando for necessário realizar um novo contato ou acompanhamento após a visita.</inlineHelpText>
+    <label>Precisa de Follow-up</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

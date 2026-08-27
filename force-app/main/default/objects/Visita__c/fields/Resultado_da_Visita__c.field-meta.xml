@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resultado_da_Visita__c</fullName>
+    <description>Registra o principal resultado obtido na visita ao produtor.</description>
+    <inlineHelpText>Selecione o resultado principal da visita realizada.</inlineHelpText>
+    <label>Resultado da Visita</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sem interesse</fullName>
+                <default>false</default>
+                <label>Sem interesse</label>
+            </value>
+            <value>
+                <fullName>Interessado</fullName>
+                <default>false</default>
+                <label>Interessado</label>
+            </value>
+            <value>
+                <fullName>Solicitou orçamento</fullName>
+                <default>false</default>
+                <label>Solicitou orçamento</label>
+            </value>
+            <value>
+                <fullName>Venda realizada</fullName>
+                <default>false</default>
+                <label>Venda realizada</label>
+            </value>
+            <value>
+                <fullName>Necessita retorno</fullName>
+                <default>false</default>
+                <label>Necessita retorno</label>
+            </value>
+            <value>
+                <fullName>Acompanhamento técnico</fullName>
+                <default>false</default>
+                <label>Acompanhamento técnico</label>
+            </value>
+            <value>
+                <fullName>Outro</fullName>
+                <default>false</default>
+                <label>Outro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
