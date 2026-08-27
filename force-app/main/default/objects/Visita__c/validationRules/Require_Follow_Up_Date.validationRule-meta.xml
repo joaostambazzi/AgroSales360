@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Follow_Up_Date</fullName>
+    <active>true</active>
+    <description>Exige o preenchimento da Data do Próximo Follow-up quando a visita estiver marcada como necessitando acompanhamento.</description>
+    <errorConditionFormula>AND(
+    Precisa_de_Follow_up__c = TRUE,
+    ISBLANK(Data_do_Pr_ximo_Follow_up__c)
+)</errorConditionFormula>
+    <errorDisplayField>Data_do_Pr_ximo_Follow_up__c</errorDisplayField>
+    <errorMessage>Informe a Data do Próximo Follow-up quando a visita precisar de acompanhamento.</errorMessage>
+</ValidationRule>
