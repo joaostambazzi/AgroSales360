@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Share_Commercial_Opportunities_with_Finance</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Share Commercial Opportunities with Finance</label>
+        <sharedTo>
+            <group>Financeiro</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>Gerente_Comercial</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
