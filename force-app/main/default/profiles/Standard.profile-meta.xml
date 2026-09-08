@@ -64,7 +64,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Credit_Limit__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
